@@ -11,6 +11,7 @@ class Menu extends Component{
             selectedDish: null
         }
         
+        console.log('Menu component constructed');
 
     }
 
@@ -39,6 +40,8 @@ class Menu extends Component{
 
     render(){
 
+        console.log('Render menu component');
+
         const menu= this.props.dishes.map((dish)=>{
             return(
                 <div key={dish.id} className="col-12 col-md-5 m-1">
@@ -57,9 +60,8 @@ class Menu extends Component{
                 <div className="row">
                     {menu}
                 </div>
-                <div className='row'>
-                    {this.renderDish(this.state.selectedDish)}
-                </div>
+                
+                <DishDetail dish={this.state.selectedDish} />
             </div>
         );
     }
