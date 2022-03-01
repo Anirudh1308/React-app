@@ -11,6 +11,10 @@ class Menu extends Component{
 
     }
 
+    componentDidMount(){
+        console.log("Menu componentDidMount invoked");
+    }
+
     renderDish(dish){
         if(dish!=null){
             return(
