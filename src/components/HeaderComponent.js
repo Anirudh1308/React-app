@@ -22,7 +22,7 @@ class Header extends Component{
                 </div>
               </Jumbotron>
             </>
-        )
+        );
     }
 }
 
