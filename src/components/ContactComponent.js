@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Breadcrumb, BreadcrumbItem, Button, Form,FormGroup,Label, Input, Col} from 'reactstrap';
+import {Breadcrumb, BreadcrumbItem, Button, Form,FormGroup,Label, Input, Col, FormFeedback} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 class Contact extends Component {
@@ -14,7 +14,13 @@ class Contact extends Component {
             email:'',
             agree: false,
             contactType: 'Tel.',
-            message:''
+            message:'',
+            touched:{
+                firstname: false,
+                lastname: false,
+                telnum: false,
+                email: false
+            }
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,6 +42,14 @@ class Contact extends Component {
         alert("Current state is: " + JSON.stringify(this.state));
         event.preventDefault();
     }
+
+    handleBlur=(field) => (evt) =>{
+        this.setState({
+            touched: {...this.state.touched, [field]: true}
+        });
+    }
+
+
     render(){
         return(
             <div className="container">
